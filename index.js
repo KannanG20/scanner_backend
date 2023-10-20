@@ -15,10 +15,6 @@ dotenv.config()
 con.connect(function(err) {
 if (err) throw err;
 console.log("Connected!");
-con.query("SELECT * FROM codes", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
 });
 
 app.use(AuthRoute)
