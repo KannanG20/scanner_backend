@@ -13,8 +13,14 @@ app.use(cors())
 dotenv.config()
 
 con.connect(function(err) {
-if (err) throw err;
-console.log("Connected!");
+if (err){
+  res.status(500).json({
+    status: 'failed',
+    error: err
+  })
+}else{
+  console.log("Connected!");
+}
 });
 
 app.use(AuthRoute)
