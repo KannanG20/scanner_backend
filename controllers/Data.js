@@ -54,7 +54,7 @@ exports.get_data = async (req, res)=> {
 }
 
 exports.delete_data = async (req, res) => {
-    let sql = `DELETE FROM qrcodes WHERE id = ${req.params.id}`;
+    let sql = `DELETE FROM codes WHERE id = ${req.params.id}`;
     let query = con.query(sql, (err, result) => {
         if(err) {
             res.status(500).json({
