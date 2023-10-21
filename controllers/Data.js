@@ -52,3 +52,20 @@ exports.get_data = async (req, res)=> {
         });
     }
 }
+
+exports.delete_data = async (req, res) => {
+    let sql = `DELETE FROM qrcodes WHERE id = ${req.params.id}`;
+    let query = con.query(sql, (err, result) => {
+        if(err) {
+            res.status(500).json({
+                status: 'success',
+                error: err.message
+            })
+        } else {
+            res.status(200).json({
+                status: 'success',
+                message: "Deleted data successfully"
+            });
+        }
+    });
+};
